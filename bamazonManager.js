@@ -41,10 +41,10 @@ function start(){
       });
     }
     
-    //I'm not sure why everything is showing up in double
+
     
     function viewProducts(){
-        console.log("All Items in ");
+        console.log("All Items in stock ");
       
         connection.query('SELECT * FROM products', function(err, res){
         if(err) throw err;
@@ -72,7 +72,7 @@ function start(){
       });
     }
     
-//I don't know why this isn't working and why it is showing doubles of everything
+
 
     function addToInventory(){
       console.log("Add Items to Inventory");
@@ -104,9 +104,9 @@ function start(){
               currentQty = res[i].sto;
             }
           }
-          connection.query('UPDATE products SET ? WHERE ?', [
-            {stock_quantity: currentQty + parseInt(ans.qty)},
-            {product_name: ans.product}
+          connection.query('Update products SET stock_quantity = ? WHERE product_name = ?', [
+            currentQty + parseInt(ans.qty),
+            ans.product
             ], function(err, res){
               if(err) throw err;
               console.log("Stock quantity updated.");
@@ -116,13 +116,13 @@ function start(){
       });
     }
     
-    //allows manager to add a new item but I don't know why it isn't working
+   
 
     function addNewProduct(){
       console.log("Add a new item.");
       var deptNames = [];
     
-      connection.query('SELECT * FROM department_name', function(err, res){
+      connection.query('SELECT * FROM products', function(err, res){
         if(err) throw err;
         for(var i = 0; i<res.length; i++){
           deptNames.push(res[i].department_name);
@@ -159,7 +159,7 @@ function start(){
           else{return false;}
         }
       }]).then(function(ans){
-        connection.query('INSERT INTO products SET ?',{
+        connection.query('Update products SET ? WHERE ?',{
          product_name: ans.product,
          department_name: ans.department,
          price: ans.price,
@@ -172,4 +172,4 @@ function start(){
       });
     }
     
-    start();
+  

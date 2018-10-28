@@ -26,4 +26,3 @@ VALUES ('Blender', 'Housewares', 50, 5),
        ('Bluetooth Mouse', 'Electronics', 55, 3),
        ('Darth Vader Doll', 'Toys', 500, 1),
        ('Lego Millenium Falcon', 'Toys', 100, 2);
-
