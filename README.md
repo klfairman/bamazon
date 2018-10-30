@@ -8,5 +8,7 @@
 
 *bamazonManager.js is designed to allow "Managers" to see all items, items that have insufficient quantity, the items/number of items they would like to add, and to add entirely new items to inventory. Changes are meant to be reflected in the database.
 
+https://user-images.githubusercontent.com/40179134/47619462-ce968080-daac-11e8-88b4-f3633753c697.png
+
 
 
